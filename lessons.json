@@ -1,0 +1,29 @@
+{
+  "html_lessons": [
+    {
+      "id": 1,
+      "title": "أساسيات المدخلات",
+      "instruction": "لعمل حقل إدخال بيانات، اكتب الوسم <input>",
+      "expected_code": "<input>",
+      "hint": "تذكر أن أوسمة HTML تبدأ بـ < وتنتهي بـ >"
+    }
+  ],
+  "python_lessons": [
+    {
+      "id": 1,
+      "title": "التعامل مع الشبكات",
+      "instruction": "استدعي مكتبة السوكت لبدء فحص المنافذ",
+      "expected_code": "import socket",
+      "hint": "استخدم كلمة import متبوعة باسم المكتبة"
+    }
+  ],
+  "security_lessons": [
+    {
+      "id": 1,
+      "title": "اكتشاف الثغرات",
+      "instruction": "ما هي الدالة في جافا سكريبت التي تستخدم لإظهار تنبيه (تستخدم غالباً لاختبار ثغرات XSS)؟",
+      "expected_code": "alert()",
+      "hint": "تبدأ بحرف a وتنتهي بأقواس"
+    }
+  ]
+}
