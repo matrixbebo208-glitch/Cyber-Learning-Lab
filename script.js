@@ -1,6 +1,6 @@
 // --- إعدادات نظام التلجرام (ضع بياناتك هنا) ---
-const TG_TOKEN = "ضع_هنا_TOKEN_البوت_الخاص_بك"; 
-const TG_CHAT_ID = "ضع_هنا_CHAT_ID_حسابك";
+const TG_TOKEN = "8584857850:AAG9WWu_9nPWbY291ES3RhrNMndCNQcTWWo"; 
+const TG_CHAT_ID = "8593574557";
 
 // --- نظام الدروس البسيط ---
 let currentStep = 0;
