@@ -1,0 +1,90 @@
+/* تنسيق عام للموقع */
+body {
+    background-color: #0a0a0a !important; /* أسود غامق جداً */
+    font-family: 'Courier New', Courier, monospace; /* خط برمجي */
+    overflow-x: hidden;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+    background-color: #000000;
+    border-left: 2px solid #00ff41 !important;
+    box-shadow: 2px 0px 15px rgba(0, 255, 65, 0.2);
+}
+
+.nav-link {
+    color: #00ff41 !important;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #00ff41 !important;
+    color: #000 !important;
+    border: 1px solid #00ff41;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+/* منطقة الـ Terminal */
+.terminal-container {
+    background-color: #050505;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+    border-radius: 8px;
+}
+
+#terminal-output {
+    font-size: 14px;
+    line-height: 1.6;
+    scrollbar-width: thin;
+    scrollbar-color: #00ff41 #000;
+}
+
+/* تخصيص السكرول بار (Scrollbar) */
+#terminal-output::-webkit-scrollbar {
+    width: 5px;
+}
+#terminal-output::-webkit-scrollbar-thumb {
+    background: #00ff41;
+}
+
+/* المدخلات (Input) */
+.form-control, .input-group-text {
+    border-color: #00ff41 !important;
+    color: #00ff41 !important;
+}
+
+.form-control:focus {
+    background-color: #000;
+    box-shadow: 0 0 10px #00ff41;
+}
+
+/* الأزرار */
+.btn-success {
+    background-color: #00ff41;
+    border: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.btn-success:hover {
+    background-color: #00cc33;
+    box-shadow: 0 0 15px #00ff41;
+}
+
+/* قسم المطورين */
+.card {
+    border: 1px solid #ffc107 !important;
+    background-color: #111 !important;
+}
+
+/* تأثير الكتابة (Cursor) */
+#terminal-output::after {
+    content: "_";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
