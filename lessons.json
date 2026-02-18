@@ -1,29 +1,46 @@
 {
-  "html_lessons": [
+  "all_lessons": [
     {
       "id": 1,
-      "title": "أساسيات المدخلات",
-      "instruction": "لعمل حقل إدخال بيانات، اكتب الوسم <input>",
-      "expected_code": "<input>",
-      "hint": "تذكر أن أوسمة HTML تبدأ بـ < وتنتهي بـ >"
-    }
-  ],
-  "python_lessons": [
+      "category": "HTML",
+      "question": "ما هو الوسم (Tag) المسؤول عن إنشاء رابط تشعبي لربط الصفحات ببعضها؟",
+      "expected": "<a>",
+      "success": "صحيح! وسم الـ anchor هو أساس الروابط في الويب."
+    },
     {
-      "id": 1,
-      "title": "التعامل مع الشبكات",
-      "instruction": "استدعي مكتبة السوكت لبدء فحص المنافذ",
-      "expected_code": "import socket",
-      "hint": "استخدم كلمة import متبوعة باسم المكتبة"
-    }
-  ],
-  "security_lessons": [
+      "id": 2,
+      "category": "HTML",
+      "question": "كيف نقوم باستدعاء ملف تنسيق خارجي (CSS) داخل صفحة HTML؟",
+      "expected": "<link>",
+      "success": "رائع! الآن بدأت تفهم كيف يتم بناء هيكل المواقع."
+    },
     {
-      "id": 1,
-      "title": "اكتشاف الثغرات",
-      "instruction": "ما هي الدالة في جافا سكريبت التي تستخدم لإظهار تنبيه (تستخدم غالباً لاختبار ثغرات XSS)؟",
-      "expected_code": "alert()",
-      "hint": "تبدأ بحرف a وتنتهي بأقواس"
+      "id": 3,
+      "category": "Python",
+      "question": "في لغة بايثون، ما هو اسم الدالة التي نستخدمها لعرض طول قائمة (List) أو نص؟",
+      "expected": "len()",
+      "success": "مظبوط! دالة len هي من أكثر الدوال استخداماً."
+    },
+    {
+      "id": 4,
+      "category": "Python",
+      "question": "اكتب الأمر اللازم لاستيراد مكتبة 'datetime' للتعامل مع الوقت والتاريخ.",
+      "expected": "import datetime",
+      "success": "تمام! التعامل مع الوقت ضروري جداً في أتمتة المهام."
+    },
+    {
+      "id": 5,
+      "category": "Cyber",
+      "question": "ما هو اسم الثغرة التي تحدث عندما يتم حقن أكواد جافا سكريبت ضارة داخل المتصفح؟",
+      "expected": "XSS",
+      "success": "إجابة محترفة! Cross-Site Scripting هي واحدة من أخطر ثغرات الويب."
+    },
+    {
+      "id": 6,
+      "category": "Cyber",
+      "question": "ما هو البروتوكول الذي يستخدم المنفذ (Port 443) لتأمين تصفح المواقع؟",
+      "expected": "HTTPS",
+      "success": "صحيح! التشفير هو الدرع الأول لحماية البيانات."
     }
   ]
 }
