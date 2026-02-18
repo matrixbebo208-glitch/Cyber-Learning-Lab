@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام التعلم الأمني المتكامل</title>
+    <title>Cyber Learning System | نظام التعلم الذكي</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,69 +12,73 @@
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block sidebar bg-black vh-100 p-3 border-start border-success">
-                <h4 class="text-success mb-4 text-center">🔐 مختبر الاختراق</h4>
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <button class="nav-link active btn-outline-success mb-2" id="tab-learn" data-bs-toggle="pill" data-bs-target="#content-learn">📖 ابدأ التعلم</button>
-                    <button class="nav-link btn-outline-success mb-2" id="tab-html" data-bs-toggle="pill" data-bs-target="#content-html">🌐 HTML/CSS</button>
-                    <button class="nav-link btn-outline-success mb-2" id="tab-python" data-bs-toggle="pill" data-bs-target="#content-python">🐍 Python</button>
-                    <button class="nav-link btn-outline-success mb-2" id="tab-cyber" data-bs-toggle="pill" data-bs-target="#content-cyber">⚔️ Cyber Security</button>
-                    <hr class="bg-success">
-                    <button class="nav-link btn-outline-warning" id="tab-dev" data-bs-toggle="pill" data-bs-target="#content-dev">👨‍💻 قسم المطورين</button>
+                <h4 class="text-success mb-4 text-center">🔐 المختبر الرقمي</h4>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                    <button class="nav-link active mb-2" id="tab-home" data-bs-toggle="pill" data-bs-target="#content-main">🏠 الرئيسية</button>
+                    <button class="nav-link disabled mb-2" id="tab-html" data-bs-toggle="pill" data-bs-target="#content-main" style="opacity: 0.5;">🌐 HTML/CSS</button>
+                    <button class="nav-link disabled mb-2" id="tab-python" data-bs-toggle="pill" data-bs-target="#content-main" style="opacity: 0.5;">🐍 Python</button>
+                    <button class="nav-link disabled mb-2" id="tab-cyber" data-bs-toggle="pill" data-bs-target="#content-main" style="opacity: 0.5;">⚔️ Cyber Security</button>
+                    <hr class="bg-success text-success">
+                    <button class="nav-link btn-outline-warning text-warning" data-bs-toggle="pill" data-bs-target="#content-dev">👨‍💻 قسم المطورين</button>
                 </div>
             </nav>
 
             <main class="col-md-10 ms-sm-auto px-md-4">
-                <div class="tab-content mt-4" id="v-pills-tabContent">
+                <div class="tab-content mt-4">
                     
-                    <div class="tab-pane fade show active" id="content-learn">
-                        <div class="p-4 rounded bg-secondary-subtle text-dark border-start border-4 border-success">
-                            <h2>أهلاً بك في النظام الذكي</h2>
-                            <p>هذا النظام سيعلمك البرمجة والحماية بالتطبيق العملي. اتبع التعليمات في الشاشة السوداء بالأسفل.</p>
+                    <div class="tab-pane fade show active" id="content-main">
+                        <div class="p-3 mb-4 rounded bg-black border-start border-4 border-success shadow">
+                            <h2 class="text-success">النظام التعليمي المفلتر</h2>
+                            <p class="text-secondary">حل التحديات في الـ Terminal لفتح الأقسام المقفولة.</p>
                         </div>
-                        
-                        <div class="terminal-container mt-4 bg-black p-3 rounded border border-success">
-                            <div class="terminal-header border-bottom border-success mb-2 pb-1">
+
+                        <div class="terminal-container bg-black p-3 rounded border border-success">
+                            <div class="terminal-header border-bottom border-success mb-2 pb-1 text-start">
                                 <span class="text-danger">●</span> <span class="text-warning">●</span> <span class="text-success">●</span> 
-                                <span class="ms-2 text-secondary">System Terminal</span>
+                                <span class="ms-2 text-secondary">system@learning-os:~$</span>
                             </div>
-                            <div id="terminal-output" class="text-success mb-3" style="height: 200px; overflow-y: auto;">
-                                [System]: النظام جاهز.. يرجى اختيار لغة من القائمة الجانبية للبدء.
+                            <div id="terminal-output" class="text-success mb-3" style="height: 250px; overflow-y: auto; font-family: monospace;">
+                                [System]: جاري تحميل قاعدة بيانات الدروس...<br>
+                                [System]: يرجى اختيار تبويبة أو البدء بأول تحدي يظهر هنا.
                             </div>
+                            
+                            <div id="helper-tools" class="mb-3 text-center border-top border-secondary pt-2">
+                                <span class="text-secondary d-block mb-2 small">هل تحتاج لمساعدة في هذا الدرس؟</span>
+                                <button onclick="getTheory()" class="btn btn-sm btn-outline-info mx-1">📖 شرح نظري مفلتر</button>
+                                <button onclick="getVideo()" class="btn btn-sm btn-outline-danger mx-1">🎥 درس فيديو</button>
+                                <button onclick="autoFilterContent()" class="btn btn-sm btn-outline-warning mx-1">🤖 فحص ذكي (AI)</button>
+                            </div>
+
                             <div class="input-group">
                                 <span class="input-group-text bg-black text-success border-success">></span>
-                                <input type="text" id="user-input" class="form-control bg-black text-white border-success" placeholder="اكتب الكود المطلوب هنا...">
+                                <input type="text" id="user-input" class="form-control bg-black text-white border-success" placeholder="اكتب كود الحل هنا...">
                                 <button class="btn btn-success" onclick="checkAnswer()">تنفيذ</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="content-dev">
-                        <div class="card bg-dark border-warning p-4">
-                            <h3 class="text-warning">إضافة تحدي جديد للنظام</h3>
+                        <div class="card bg-black border-warning text-white p-4 shadow-lg">
+                            <h3 class="text-warning mb-4">📢 أرسل تحدي جديد للنظام</h3>
                             <div class="mb-3">
                                 <label class="form-label">اسمك كمطور</label>
-                                <input type="text" id="dev-name" class="form-control bg-secondary text-white border-0">
+                                <input type="text" id="dev-name" class="form-control bg-dark text-white border-warning">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">لغة البرمجة/نوع الثغرة</label>
-                                <select id="dev-lang" class="form-control bg-secondary text-white border-0">
+                                <label class="form-label">اللغة / التخصص</label>
+                                <select id="dev-lang" class="form-control bg-dark text-white border-warning">
                                     <option>HTML/CSS</option>
                                     <option>Python</option>
-                                    <option>PHP</option>
                                     <option>Cyber Security</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">كود التحدي (النص التعليمي)</label>
-                                <textarea id="dev-code" class="form-control bg-secondary text-white border-0" rows="5" placeholder="اكتب هنا ما تريد إضافته..."></textarea>
+                                <label class="form-label">تفاصيل الدرس أو الكود</label>
+                                <textarea id="dev-code" class="form-control bg-dark text-white border-warning" rows="5"></textarea>
                             </div>
-                            <button class="btn btn-warning w-100" onclick="sendToTelegram()">إرسال للمراجعة (عبر Telegram)</button>
+                            <button class="btn btn-warning w-100 fw-bold" onclick="sendToTelegram()">إرسال للمراجعة (Telegram)</button>
                         </div>
                     </div>
-
-                    <div class="tab-pane fade" id="content-html"><h3>دروس الـ HTML</h3><p>سيتم تحميلها عند إنهاء المهمة الأولى.</p></div>
-                    <div class="tab-pane fade" id="content-python"><h3>دروس Python</h3><p>مغلقة حالياً.</p></div>
-                    <div class="tab-pane fade" id="content-cyber"><h3>دروس الأمن السيبراني</h3><p>مغلقة حالياً.</p></div>
 
                 </div>
             </main>
