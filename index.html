@@ -11,12 +11,12 @@
 
     <div id="lock-screen">
         <div class="d-flex align-items-center justify-content-center h-100">
-            <div class="card bg-dark border-success p-4 text-center login-card">
-                <h1 class="matrix-title mb-4" onclick="adminAccess()">MATRIX</h1>
+            <div class="card bg-dark border-success p-4 text-center login-card" style="box-shadow: 0 0 15px #00ff41;">
+                <h1 class="matrix-title mb-4" style="cursor: pointer; user-select: none;" onclick="adminAccess()">MATRIX</h1>
                 <div id="auth-content">
-                    <p class="text-secondary">أهلاً بك في نظام ماتركس التعليمي</p>
-                    <input type="text" id="user-name" class="form-control mb-3" placeholder="أدخل اسمك الحقيقي">
-                    <button onclick="generateUserId()" class="btn btn-outline-success w-100">تسجيل الدخول</button>
+                    <p class="text-secondary">نظام ماتركس التعليمي المتطور</p>
+                    <input type="text" id="user-name" class="form-control mb-3 text-center bg-black text-success border-success" placeholder="أدخل اسمك الحقيقي">
+                    <button onclick="generateUserId()" class="btn btn-outline-success w-100">تسجيل الدخول للنظام</button>
                 </div>
             </div>
         </div>
@@ -24,28 +24,26 @@
 
     <div id="admin-panel" class="container mt-5 d-none">
         <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-warning pb-2">
-            <h2 class="text-warning text-uppercase">Admin Central Control</h2>
-            <button onclick="exitAdmin()" class="btn btn-sm btn-danger">خروج</button>
+            <h2 class="text-warning text-uppercase">Central Control Unit</h2>
+            <button onclick="exitAdmin()" class="btn btn-sm btn-danger">إغلاق اللوحة</button>
         </div>
         
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card bg-dark border-warning p-3 h-100">
-                    <h5 class="text-warning">📊 تحليل البيانات</h5>
-                    <p>المستخدمين النشطين: <span id="stat-users" class="text-white">0</span></p>
-                    <p>إجمالي الأرباح: <span id="stat-money" class="text-white">0</span> ج.م</p>
+                    <h5 class="text-warning">⚙️ إحصائيات النظام</h5>
+                    <p class="small text-muted">سيتم تحديث البيانات تلقائياً من قاعدة البيانات.</p>
                 </div>
             </div>
 
             <div class="col-md-8 mb-4">
                 <div class="card bg-dark border-info p-3 h-100">
-                    <h5 class="text-info">➕ إضافة لغة / قسم جديد</h5>
+                    <h5 class="text-info">➕ إضافة محتوى جديد</h5>
                     <div class="row g-2">
-                        <div class="col-6"><input type="text" id="c-title" class="form-control" placeholder="اسم القسم"></div>
-                        <div class="col-6"><input type="text" id="c-price" class="form-control" placeholder="سعر الكورس (EGP)"></div>
-                        <div class="col-12"><input type="text" id="c-vid" class="form-control" placeholder="رابط فيديو يوتيوب"></div>
-                        <div class="col-12"><textarea id="c-desc" class="form-control" rows="3" placeholder="الشرح النظري والأدوات"></textarea></div>
-                        <div class="col-12"><button onclick="publishNewCourse()" class="btn btn-info w-100 mt-2">نشر القسم الآن 🚀</button></div>
+                        <div class="col-6"><input type="text" id="c-title" class="form-control" placeholder="اسم الدرس"></div>
+                        <div class="col-6"><input type="text" id="c-vid" class="form-control" placeholder="ID فيديو يوتيوب"></div>
+                        <div class="col-12"><textarea id="c-desc" class="form-control" rows="3" placeholder="وصف الدرس أو الأدوات المطلوبة"></textarea></div>
+                        <div class="col-12"><button onclick="publishNewCourse()" class="btn btn-info w-100 mt-2">نشر المحتوى للمشتركين</button></div>
                     </div>
                 </div>
             </div>
@@ -54,16 +52,16 @@
 
     <div id="main-platform" class="container-fluid d-none h-100">
         <div class="row h-100">
-            <div class="col-md-3 border-end border-success p-3 sidebar">
-                <h4 class="mb-4">📂 الأقسام المتاحة</h4>
+            <div class="col-md-3 border-end border-success p-3 sidebar" style="height: 100vh; overflow-y: auto;">
+                <h4 class="mb-4 border-bottom pb-2">📂 الأقسام المتاحة</h4>
                 <div id="courses-list" class="list-group list-group-flush">
                     </div>
             </div>
 
-            <div class="col-md-9 p-4 content-area">
+            <div class="col-md-9 p-4 content-area" style="height: 100vh; overflow-y: auto;">
                 <div id="welcome-msg">
                     <h3>أهلاً بك يا <span id="display-name" class="text-white"></span></h3>
-                    <p>اختر قسماً من القائمة الجانبية لبدء التعلم.</p>
+                    <p class="text-muted">اختر درساً من القائمة لبدء التدريب العالي.</p>
                 </div>
 
                 <div id="course-viewer" class="d-none">
@@ -72,17 +70,16 @@
                         <iframe id="main-video" src="" allowfullscreen></iframe>
                     </div>
                     <div class="card bg-dark border-secondary p-3 mb-4">
-                        <h5>📘 الشرح النظري والأدوات:</h5>
-                        <p id="view-desc" class="text-secondary"></p>
+                        <h5>📘 تفاصيل التدريب:</h5>
+                        <p id="view-desc" class="text-white opacity-75"></p>
                     </div>
-                    <button onclick="terminateSession()" class="btn btn-outline-danger">تم انتهاء الكورس (تسجيل خروج)</button>
+                    <button onclick="terminateSession()" class="btn btn-outline-danger btn-sm">تسجيل الخروج من الجلسة</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
 </html>
