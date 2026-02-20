@@ -3,82 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATRIX SYSTEM | منصة ماتركس</title>
-    
+    <title>MATRIX SYSTEM | منصة ماتريكس</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
-</head>
-<body class="matrix-bg">
-
-    <section id="login-section" class="flex-center">
-        <div class="login-box">
-            <h1 class="glow-text">MATRIX</h1>
-            <div class="input-group-custom">
-                <input type="text" id="student-id" placeholder="معرف الطالب (ID)" required>
-                <input type="password" id="activation-key" placeholder="كود التفعيل" required>
-                <button onclick="login()" id="login-btn">دخول النظام</button>
-            </div>
-            <p id="login-error" class="text-danger mt-3 d-none">خطأ في البيانات، تأكد من الـ ID والكود</p>
-        </div>
-    </section>
-
-    <main id="platform-section" class="container d-none py-4">
-        <header class="d-flex justify-content-between align-items-center mb-5 border-bottom border-success pb-3">
-            <div>
-                <h2 class="glow-text-sm">MATRIX PLATFORM</h2>
-                <small class="text-secondary" id="display-id"></small>
-            </div>
-            <div class="balance-container">
-                <span class="label">الرصيد:</span>
-                <span id="user-balance" class="amount">0</span>
-                <span class="currency">ج.م</span>
-            </div>
-        </header>
-
-        <div class="text-start mb-4">
-            <button onclick="requestBalance()" class="btn-charge">⚡ شحن رصيد</button>
-        </div>
-
-        <div id="courses-grid" class="row g-4">
-            </div>
-    </main>
-
-    <section id="video-section" class="container d-none py-4">
-        <button onclick="backToLibrary()" class="btn-back mb-3">🔙 العودة للمكتبة</button>
-        <div class="video-wrapper">
-            <div class="matrix-overlay"></div> <iframe id="main-player" src="" allowfullscreen></iframe>
-        </div>
-        <div class="video-info mt-4">
-            <h3 id="video-title" class="text-success"></h3>
-            <p id="video-desc" class="text-secondary"></p>
-        </div>
-    </section>
-
-    <footer class="mt-5 text-center">
-        <div class="secret-code-zone">
-            <span class="text-muted small">System Status: OK | v</span>
-            <span class="code-num" onclick="pressNum('9')">9</span>
-            <span class="code-num" onclick="pressNum('2')">2</span>
-            <span class="code-num" onclick="pressNum('9')">9</span>
-            <span class="code-num" onclick="pressNum('2')">2</span>
-        </div>
-    </footer>
-
-    <div id="admin-panel" class="admin-modal d-none">
-        <div class="admin-content">
-            <h2 class="text-warning">Matrix Admin Panel</h2>
-            <div id="admin-data">
-                </div>
-            <button onclick="closeAdmin()" class="btn btn-outline-danger w-100 mt-4">إغلاق اللوحة</button>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
+</head>
+<body class="bg-dark text-white">
+
+    <section id="login-section" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5 card bg-secondary p-4 shadow-lg">
+                <h2 class="text-center mb-4">تسجيل الدخول - MATRIX</h2>
+                <input type="text" id="student-id" class="form-control mb-3" placeholder="أدخل الـ ID الخاص بك">
+                <input type="password" id="activation-key" class="form-control mb-3" placeholder="كود التفعيل">
+                <button onclick="login()" class="btn btn-primary w-100">دخول النظام</button>
+                <p id="login-error" class="text-danger mt-3 d-none text-center">بيانات غير صحيحة!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="platform-section" class="container mt-4 d-none">
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+            <h4 id="display-id">ID: ---</h4>
+            <h4>رصيدك: <span id="user-balance" class="badge bg-success">0</span> ج.م</h4>
+        </div>
+        
+        <div class="mt-4">
+            <h3>المتجر المتوفر:</h3>
+            <div id="courses-container" class="row">
+                </div>
+        </div>
+    </section>
+
+    <section id="admin-section" class="container mt-4 d-none">
+        <div class="card bg-danger p-4">
+            <h3>لوحة التحكم يا يوسف (الأدمن)</h3>
+            <hr>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5>شحن رصيد لطالب</h5>
+                    <input type="text" id="target-id" class="form-control mb-2" placeholder="ID الطالب">
+                    <input type="number" id="amount" class="form-control mb-2" placeholder="المبلغ">
+                    <button onclick="addBalance()" class="btn btn-dark">إضافة الرصيد</button>
+                </div>
+                <div class="col-md-6">
+                    <h5>إضافة درس جديد</h5>
+                    <input type="text" id="course-name" class="form-control mb-2" placeholder="اسم الدرس">
+                    <input type="number" id="course-price" class="form-control mb-2" placeholder="السعر">
+                    <input type="text" id="course-link" class="form-control mb-2" placeholder="لينك الفيديو">
+                    <button onclick="addNewCourse()" class="btn btn-dark">نشر الدرس</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="config.js"></script>
     <script src="auth.js"></script>
-    <script src="platform.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
