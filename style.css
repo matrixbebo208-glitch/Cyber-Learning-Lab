@@ -1,169 +1,55 @@
-/* إعدادات الخطوط والألوان الأساسية */
-:root {
-    --matrix-green: #00ff41;
-    --dark-bg: #0d0d0d;
-    --card-bg: #1a1a1a;
-    --text-gray: #b0b0b0;
-}
-
+/* تنسيقات منصة MATRIX - يوسف */
 body {
-    background-color: var(--dark-bg);
-    color: white;
-    font-family: 'Cairo', sans-serif;
-    margin: 0;
-    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117 !important; /* لون خلفية غامق جداً */
+    color: #e6edf3 !important;
 }
 
-.matrix-bg {
-    background: radial-gradient(circle, #111 0%, #000 100%);
-    min-height: 100vh;
-}
-
-/* نصوص التوهج (Matrix Glow) */
-.glow-text {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--matrix-green);
-    text-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green);
-    font-size: 3rem;
-    letter-spacing: 5px;
-}
-
-.glow-text-sm {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--matrix-green);
-    text-shadow: 0 0 5px var(--matrix-green);
-}
-
-/* شاشة تسجيل الدخول */
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-box {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid var(--matrix-green);
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
-    width: 100%;
-    max-width: 400px;
-}
-
-input[type="text"], input[type="password"] {
-    background: #000;
-    border: 1px solid #333;
-    color: var(--matrix-green);
-    padding: 12px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-input:focus {
-    outline: none;
-    border-color: var(--matrix-green);
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-}
-
-button#login-btn, .btn-matrix {
-    background: var(--matrix-green);
-    color: black;
-    font-weight: bold;
+/* بطاقات الدروس */
+.card {
     border: none;
-    padding: 12px;
-    border-radius: 5px;
-    transition: 0.3s;
-    width: 100%;
-}
-
-button#login-btn:hover {
-    background: #00cc33;
-    transform: scale(1.02);
-}
-
-/* نظام الرصيد */
-.balance-container {
-    background: #111;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: 1px solid var(--matrix-green);
-}
-
-.amount {
-    color: var(--matrix-green);
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin: 0 5px;
-}
-
-/* مشغل الفيديو والغطاء (Overlay) */
-.video-wrapper {
-    position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    background: #000;
-    border: 2px solid var(--matrix-green);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.matrix-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px; /* يخفي شريط اليوتيوب العلوي */
-    z-index: 10;
-    background: transparent;
-}
-
-/* الأرقام السرية في الفوتر */
-.secret-code-zone {
-    padding: 20px;
-    cursor: pointer;
-}
-
-.code-num {
-    color: #333;
-    margin: 0 2px;
-    transition: 0.2s;
-    user-select: none;
-}
-
-.code-num:hover {
-    color: var(--matrix-green);
-}
-
-/* لوحة الأدمن */
-.admin-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.admin-content {
-    background: #111;
-    border: 2px solid orange;
-    padding: 30px;
     border-radius: 15px;
-    width: 90%;
-    max-width: 600px;
+    transition: transform 0.3s ease, shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5-px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.bg-secondary {
+    background-color: #161b22 !important;
+}
+
+/* أزرار MATRIX */
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    border: none;
+    font-weight: bold;
+}
+
+.btn-warning {
+    background: linear-gradient(45deg, #f39c12, #f1c40f);
+    border: none;
+    color: #000;
+    font-weight: bold;
+}
+
+/* لوحة الأدمن السرية */
+#admin-section {
+    border: 2px solid #ff4d4d;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+/* منع تحديد النصوص للحماية */
+* {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* جعل الفيديوهات متجاوبة */
+iframe {
+    width: 100%;
+    border-radius: 10px;
 }
